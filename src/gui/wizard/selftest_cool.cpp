@@ -33,29 +33,40 @@ void wizard_init_screen_selftest_cool(int16_t id_body, selftest_cool_screen_t *p
 
     y += 22;
 
-    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(10, y, WIZARD_X_SPACE, 22), &(p_screen->curr_nozzle_temp));
-    p_screen->curr_nozzle_temp.SetFormat((const char *)"Nozzle: %.1f\177C");
+    window_create_ptr(WINDOW_CLS_TEXT, id_body, rect_ui16(x, y, WIZARD_X_TEMP, 22), &(p_screen->nozzle_tx));
+    p_screen->nozzle_tx.SetText(_("Nozzle"));
+    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(WIZARD_X_TEMP, y, 100, 22), &(p_screen->curr_nozzle_temp));
+    p_screen->curr_nozzle_temp.SetFormat((const char *)"%.1f\177C");
 
     y += 22;
 
-    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(10, y, WIZARD_X_SPACE, 22), &(p_screen->curr_bed_temp));
-    p_screen->curr_bed_temp.SetFormat((const char *)"Bed: %.1f\177C");
+    window_create_ptr(WINDOW_CLS_TEXT, id_body, rect_ui16(x, y, WIZARD_X_TEMP, 22), &(p_screen->bed_tx));
+    p_screen->bed_tx.SetText(_("Heatbed"));
+    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(WIZARD_X_TEMP, y, 100, 22), &(p_screen->curr_bed_temp));
+    p_screen->curr_bed_temp.SetFormat((const char *)"%.1f\177C");
+
+    y += 44;
+
+    window_create_ptr(WINDOW_CLS_TEXT, id_body, rect_ui16(15, y, WIZARD_X_SPACE - 15, 22), &(p_screen->text_target_tp));
+    p_screen->text_target_tp.SetText(_("Cilova teplota"));  //Target temp
 
     y += 22;
 
-    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(10, y, WIZARD_X_SPACE - 10, 22), &(p_screen->target_nozzle));
-    p_screen->target_nozzle.SetFormat((const char *)"Noz. target: %.0f\177C");
+    window_create_ptr(WINDOW_CLS_TEXT, id_body, rect_ui16(x, y, WIZARD_X_TEMP, 22), &(p_screen->target_nozzle_tx));
+    p_screen->target_nozzle_tx.SetText(_("Nozzle"));
+    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(WIZARD_X_TEMP, y, WIZARD_X_TEMP - 30, 22), &(p_screen->target_nozzle));
+    p_screen->target_nozzle.SetFormat((const char *)"%.0f\177C");
     p_screen->target_nozzle.SetValue(_CALIB_TEMP_NOZ);
 
     y += 22;
 
-    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(10, y, WIZARD_X_SPACE - 10, 22), &(p_screen->target_bed));
-    p_screen->target_bed.SetFormat((const char *)"Bed. target: %.0f\177C");
+    window_create_ptr(WINDOW_CLS_TEXT, id_body, rect_ui16(x, y, WIZARD_X_TEMP, 22), &(p_screen->target_bed_tx));
+    p_screen->target_bed_tx.SetText(_("Heatbed"));
+    window_create_ptr(WINDOW_CLS_NUMB, id_body, rect_ui16(WIZARD_X_TEMP, y, WIZARD_X_TEMP - 30, 22), &(p_screen->target_bed));
+    p_screen->target_bed.SetFormat((const char *)"%.0f\177C");
     p_screen->target_bed.SetValue(_CALIB_TEMP_BED);
 
-    y += 35;
-
-    window_create_ptr(WINDOW_CLS_ICON, id_body, rect_ui16(100, y, 40, 40), &(p_screen->icon_hourglass));
+    window_create_ptr(WINDOW_CLS_ICON, id_body, rect_ui16(180, 172, 40, 40), &(p_screen->icon_hourglass));
     p_screen->icon_hourglass.SetIdRes(IDR_PNG_wizard_icon_hourglass);
 }
 
