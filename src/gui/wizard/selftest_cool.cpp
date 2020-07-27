@@ -48,7 +48,7 @@ void wizard_init_screen_selftest_cool(int16_t id_body, selftest_cool_screen_t *p
     y += 44;
 
     window_create_ptr(WINDOW_CLS_TEXT, id_body, rect_ui16(15, y, WIZARD_X_SPACE - 15, 22), &(p_screen->text_target_tp));
-    p_screen->text_target_tp.SetText(_("Cilova teplota"));  //Target temp
+    p_screen->text_target_tp.SetText(_("Target temperature"));  //Target temp
 
     y += 22;
 
