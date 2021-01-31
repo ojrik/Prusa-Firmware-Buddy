@@ -10,10 +10,11 @@ void GcodeSuite::M20() {
     DIR dir = { 0 };
     FRESULT result = f_opendir(&dir, "/");
     if (result == FR_OK) {
+//        fname[0] = 0;
         FILINFO current_finfo = { 0 };
-        result = f_findfirst(&dir, &current_finfo, "", "*.gco*");
+        result = f_findfirst(&dir, &current_finfo, "", "*.gcode");
         while (result == FR_OK && current_finfo.fname[0]) {
-            SERIAL_ECHOLN(current_finfo.altname);
+            SERIAL_ECHOLN(current_finfo.fname);
             result = f_findnext(&dir, &current_finfo);
         }
     }

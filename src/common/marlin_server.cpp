@@ -589,6 +589,7 @@ static void _server_print_loop(void) {
         break;
     case mpsFinishing_ParkHead:
         if (planner.movesplanned() == 0) {
+            print_job_timer.stop();
             marlin_server.print_state = mpsFinished;
             fsm_destroy(ClientFSM::Printing);
         }

@@ -285,10 +285,9 @@ void screen_printing_data_t::update_remaining_time(uint32_t sec, uint16_t print_
         } else {
             snprintf(text_etime.data(), MAX_END_TIMESTAMP_SIZE, "%im", timeinfo->tm_min);
         }
-    } else {
         if (print_speed != 100)
             strlcat(text_etime.data(), "?", MAX_END_TIMESTAMP_SIZE);
-        else
+    } else {
             strlcpy(text_etime.data(), "N/A", MAX_END_TIMESTAMP_SIZE);
     }
     // this MakeRAM is safe - text_etime is allocated in RAM for the lifetime of pw

@@ -15,12 +15,12 @@ extern "C" const char *get_selected_filament_name() {
     return Filaments::Current().name;
 }
 
-static constexpr const char *pla_str = "PLA      215/ 60";
-static constexpr const char *pet_g_str = "PETG     230/ 85";
+static constexpr const char *pla_str = "PLA      210/ 60";
+static constexpr const char *pet_g_str = "PETG     230/ 80";
 static constexpr const char *asa_str = "ASA      260/100";
-static constexpr const char *abs_str = "ABS      255/100";
+static constexpr const char *abs_str = "ABS      240/100";
 static constexpr const char *pc_str = "PC       275/100";
-static constexpr const char *flex_str = "FLEX     240/ 50";
+static constexpr const char *flex_str = "FLEX     215/ 50";
 static constexpr const char *hips_str = "HIPS     220/100";
 static constexpr const char *pp_str = "PP       240/100";
 
@@ -28,12 +28,12 @@ static constexpr const char *pp_str = "PP       240/100";
 //fixme generating long names, takes too long
 const Filaments::Array filaments = {
     { "---", BtnTexts::Get(Response::Cooldown), 0, 0, Response::Cooldown }, // Cooldown sets long text instead short, not a bug
-    { BtnTexts::Get(Response::PLA), pla_str, 215, 60, Response::PLA },
-    { BtnTexts::Get(Response::PETG), pet_g_str, 230, 85, Response::PETG },
+    { BtnTexts::Get(Response::PLA), pla_str, 210, 60, Response::PLA },
+    { BtnTexts::Get(Response::PETG), pet_g_str, 230, 80, Response::PETG },
     { BtnTexts::Get(Response::ASA), asa_str, 260, 100, Response::ASA },
-    { BtnTexts::Get(Response::ABS), abs_str, 255, 100, Response::ABS },
+    { BtnTexts::Get(Response::ABS), abs_str, 240, 100, Response::ABS },
     { BtnTexts::Get(Response::PC), pc_str, 275, 100, Response::PC },
-    { BtnTexts::Get(Response::FLEX), flex_str, 240, 50, Response::FLEX },
+    { BtnTexts::Get(Response::FLEX), flex_str, 215, 50, Response::FLEX },
     { BtnTexts::Get(Response::HIPS), hips_str, 220, 100, Response::HIPS },
     { BtnTexts::Get(Response::PP), pp_str, 240, 100, Response::PP },
 };

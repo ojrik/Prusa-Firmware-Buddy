@@ -425,9 +425,9 @@
 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
     // Prusa MINI
-    #define DEFAULT_Kp 7.00
-    #define DEFAULT_Ki 0.50
-    #define DEFAULT_Kd 45.00
+    #define DEFAULT_Kp 18.03
+    #define DEFAULT_Ki 1.79
+    #define DEFAULT_Kd 45.43
     #define STEADY_STATE_HOTEND_LINEAR_COOLING_TERM 0.322
     #define STEADY_STATE_HOTEND_QUADRATIC_COOLING_TERM 0.0002
     #define STEADY_STATE_HOTEND_FAN_COOLING_TERM 3.9
@@ -468,9 +468,9 @@
     //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
     //24V Prusa MINI bed
-    #define DEFAULT_bedKp 120.00
-    #define DEFAULT_bedKi 1.50
-    #define DEFAULT_bedKd 600.00
+    #define DEFAULT_bedKp 43.78
+    #define DEFAULT_bedKi 3.36
+    #define DEFAULT_bedKd 380.63
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -657,7 +657,7 @@
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 280 } //E0 280 295
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
-    { 100, 100, 400, 325 } //E0 280 295
+    { 100, 100, 200, 328 } //E0 280 295 325 E0 - 330 // Z400
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 800, 800, 3200, 1120 } //E0 280 295
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 1120 } //E0 280 295
 
@@ -676,7 +676,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_ACCELERATION \
-    { 1250, 1250, 400, 4000 }
+    { 1250, 1250, 300, 3000 }   // Z400  // E4000
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -1248,7 +1248,7 @@
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (3000)
-#define HOMING_FEEDRATE_Z (6 * 60)
+#define HOMING_FEEDRATE_Z (8 * 60)  // 6 * 60
 
 // Validate that endstops are triggered on homing moves
 //#define VALIDATE_HOMING_ENDSTOPS
@@ -1387,12 +1387,6 @@
         { (X_MIN_POS + 10), (Y_MIN_POS + 10), 20 }
     #define NOZZLE_PARK_XY_FEEDRATE 100 // (mm/s) X and Y axes feedrate (also used for delta Z axis)
     #define NOZZLE_PARK_Z_FEEDRATE 5 // (mm/s) Z axis feedrate (not used for delta printers)
-
-    /**
-     * Park the nozzle after print is finished
-     * When disabled, similar functionality can be still achieved with slicer "End G-code"
-     */
-    #define PARK_HEAD_ON_PRINT_FINISH
 #endif
 
 /**

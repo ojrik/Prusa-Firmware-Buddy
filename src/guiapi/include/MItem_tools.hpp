@@ -352,7 +352,7 @@ public:
 };
 
 class MI_TIMEZONE : public WI_SPIN_I08_t {
-    constexpr static const char *const label = "TZ UTC(+/-)"; // intentionally not translated
+    constexpr static const char *const label = "Časová zóna UTC(+/-)"; // intentionally not translated
 
 public:
     MI_TIMEZONE();
